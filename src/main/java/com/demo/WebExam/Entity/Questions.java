@@ -1,7 +1,6 @@
 package com.demo.WebExam.Entity;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -18,7 +17,7 @@ public class Questions {
     private QuestionPack questionPackId;
 
     @OneToMany(mappedBy = "questionId", cascade = CascadeType.ALL)
-    private Set<Answer> Answers;
+    private Set<Answer> answers;
 
     public Questions(String questionText) {
         this.questionText = questionText;
@@ -53,10 +52,10 @@ public class Questions {
     }
 
     public Set<Answer> getAnswers() {
-        return Answers;
+        return answers;
     }
 
     public void setAnswers(Set<Answer> answers) {
-        Answers = answers;
+        this.answers = answers;
     }
 }

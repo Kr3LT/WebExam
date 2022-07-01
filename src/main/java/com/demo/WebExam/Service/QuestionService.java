@@ -10,8 +10,10 @@ import com.demo.WebExam.RequestEntity.RequestQuestion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -19,6 +21,7 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
     private final QuestionPackRepository questionPackRepository;
     private final AnswerRepository answerRepository;
+
     @Autowired
     public QuestionService(QuestionRepository questionRepository, QuestionPackRepository questionPackRepository, AnswerRepository answerRepository) {
         this.questionRepository = questionRepository;
@@ -39,7 +42,14 @@ public class QuestionService {
             QuestionPack questionPack = OpQuestionPack.get();
             newQuestions.setQuestionPackId(questionPack);
         }
-        newQuestions.setAnswers(questions.getAnswerSet());
+        Set<Answer> answerSet = null;
+        for (UUID id:
+             questions.getAnswerList()) {
+            Optional<Answer> optionalAnswer = answerRepository.findById(id);
+            if(optionalAnswer.isPresent())
+                answerSet.add(optionalAnswer.get());
+        }
+        newQuestions.setAnswers(answerSet);
         questionRepository.save(newQuestions);
         return newQuestions;
     }

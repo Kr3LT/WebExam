@@ -1,22 +1,20 @@
 package com.demo.WebExam.RequestEntity;
 
-import com.demo.WebExam.Entity.Answer;
-
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 public class RequestQuestion {
     private String questionText;
     private UUID questionPackId;
-    private Set<Answer> answerSet;
+    private List<UUID> answerList;
 
     public RequestQuestion() {
     }
 
-    public RequestQuestion(String questionText, UUID questionPackId, Set<Answer> answerSet) {
+    public RequestQuestion(String questionText, UUID questionPackId, List<UUID> answerSet) {
         this.questionText = questionText;
         this.questionPackId = questionPackId;
-        this.answerSet = answerSet;
+        this.answerList = answerSet;
     }
 
     public String getQuestionText() {
@@ -35,11 +33,11 @@ public class RequestQuestion {
         this.questionPackId = questionPackId;
     }
 
-    public Set<Answer> getAnswerSet() {
-        return answerSet;
+    public List<UUID> getAnswerList() {
+        return answerList;
     }
 
-    public void setAnswerSet(Set<Answer> answerSet) {
-        this.answerSet = answerSet;
+    public void setAnswerList(List<UUID> answerList) {
+        this.answerList = answerList;
     }
 }

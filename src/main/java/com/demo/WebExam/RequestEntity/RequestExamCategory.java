@@ -2,18 +2,20 @@ package com.demo.WebExam.RequestEntity;
 
 import com.demo.WebExam.Entity.Exam;
 
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 public class RequestExamCategory {
     private String examCategoryName;
-    private Set<Exam> examSet;
+    private List<UUID> examIdList;
 
     public RequestExamCategory() {
     }
 
-    public RequestExamCategory(String examCategoryName, Set<Exam> examSet) {
+    public RequestExamCategory(String examCategoryName, List<UUID> examIdList) {
         this.examCategoryName = examCategoryName;
-        this.examSet = examSet;
+        this.examIdList = examIdList;
     }
 
     public String getExamCategoryName() {
@@ -24,11 +26,11 @@ public class RequestExamCategory {
         this.examCategoryName = examCategoryName;
     }
 
-    public Set<Exam> getExamSet() {
-        return examSet;
+    public List<UUID> getExamIdList() {
+        return examIdList;
     }
 
-    public void setExamSet(Set<Exam> examSet) {
-        this.examSet = examSet;
+    public void setExamIdList(List<UUID> examIdList) {
+        this.examIdList = examIdList;
     }
 }

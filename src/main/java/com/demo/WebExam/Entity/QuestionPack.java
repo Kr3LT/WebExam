@@ -12,9 +12,9 @@ public class QuestionPack {
     private int questionPackNOQ;
     private int questionPackNOU = 0;
     @OneToMany(mappedBy = "questionPackId",cascade = CascadeType.ALL)
-    private Set<Questions> Questions = new HashSet<>();
+    private Set<Questions> questions = new HashSet<>();
     @OneToMany(mappedBy = "questionPackId", cascade = CascadeType.ALL)
-    private Set<Exam> Exams = new HashSet<>();
+    private Set<Exam> exams = new HashSet<>();
 
     public QuestionPack(String questionPackName, int questionPackNOQ) {
         this.questionPackName = questionPackName;
@@ -53,18 +53,18 @@ public class QuestionPack {
     }
 
     public Set<com.demo.WebExam.Entity.Questions> getQuestions() {
-        return Questions;
+        return questions;
     }
 
     public void setQuestions(Set<com.demo.WebExam.Entity.Questions> questions) {
-        Questions = questions;
+        this.questions = questions;
     }
 
     public Set<Exam> getExams() {
-        return Exams;
+        return exams;
     }
 
     public void setExams(Set<Exam> exams) {
-        Exams = exams;
+        this.exams = exams;
     }
 }

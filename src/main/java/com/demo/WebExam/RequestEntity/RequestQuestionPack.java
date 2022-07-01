@@ -4,22 +4,25 @@ import com.demo.WebExam.Entity.Exam;
 import com.demo.WebExam.Entity.Questions;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 public class RequestQuestionPack {
     private String questionPackName;
     private int questionPackNOQ;
     private int questionPackNOU;
-    private Set<Questions> Questions = new HashSet<>();
-    private Set<Exam> Exams = new HashSet<>();
+    private List<UUID> questionsList;
+    private List<UUID> examsList;
 
-    public RequestQuestionPack(String questionPackName, int questionPackNOQ, int questionPackNOU, Set<com.demo.WebExam.Entity.Questions> questions, Set<Exam> exams) {
+    public RequestQuestionPack(String questionPackName, int questionPackNOQ, int questionPackNOU, List<UUID> questionsList, List<UUID> examsList) {
         this.questionPackName = questionPackName;
         this.questionPackNOQ = questionPackNOQ;
         this.questionPackNOU = questionPackNOU;
-        Questions = questions;
-        Exams = exams;
+        this.questionsList = questionsList;
+        this.examsList = examsList;
     }
+
 
     public RequestQuestionPack() {
     }
@@ -48,19 +51,19 @@ public class RequestQuestionPack {
         this.questionPackNOU = questionPackNOU;
     }
 
-    public Set<com.demo.WebExam.Entity.Questions> getQuestions() {
-        return Questions;
+    public List<UUID> getQuestionsList() {
+        return questionsList;
     }
 
-    public void setQuestions(Set<com.demo.WebExam.Entity.Questions> questions) {
-        Questions = questions;
+    public void setQuestionsList(List<UUID> questionsList) {
+        this.questionsList = questionsList;
     }
 
-    public Set<Exam> getExams() {
-        return Exams;
+    public List<UUID> getExamsList() {
+        return examsList;
     }
 
-    public void setExams(Set<Exam> exams) {
-        Exams = exams;
+    public void setExamsList(List<UUID> examsList) {
+        this.examsList = examsList;
     }
 }
